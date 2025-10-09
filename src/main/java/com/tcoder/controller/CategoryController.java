@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tcoder.dto.CategoryDto;
 import com.tcoder.dto.CategoryResponse;
-import com.tcoder.entity.Category;
 import com.tcoder.service.CategoryService;
 
 @RestController
@@ -28,7 +26,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 	
-	@PostMapping("/save-category")
+	@PostMapping("/save")
 	public ResponseEntity<?> saveCategory(@RequestBody CategoryDto categoryDto){
 		Boolean saveCategory = categoryService.saveCategory(categoryDto);
 		if(saveCategory) {
